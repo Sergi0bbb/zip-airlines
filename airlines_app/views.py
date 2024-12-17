@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 
 from airlines_app.models import Airplane
+from airlines_app.pagination import ReservationPagination
 from airlines_app.serializers import (
     AirplaneSerializer,
     AirplaneDetailSerializer
@@ -11,6 +12,7 @@ from airlines_app.serializers import (
 class AirplaneViewSet(viewsets.ModelViewSet):
     queryset = Airplane.objects.all()
     serializer_class = AirplaneSerializer
+    pagination_class = ReservationPagination
 
     def get_serializer_class(self):
         if self.action == "list":
