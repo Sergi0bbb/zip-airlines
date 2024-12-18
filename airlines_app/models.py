@@ -6,7 +6,7 @@ class Airplane(models.Model):
     amount_of_passengers = models.PositiveIntegerField(default=0)
 
     @property
-    def fuel_tank_capacity(self) -> float | int:
+    def fuel_tank_capacity(self) -> int:
         return round(self.id * 200, 2)
 
     @property
